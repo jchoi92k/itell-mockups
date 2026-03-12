@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iTELL Teacher Dashboard Mockups</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  body { justify-content: center; align-items: center; flex-direction: column; padding: 48px 24px; }
+  .hub { max-width: 640px; width: 100%; }
+  .hub h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .hub p { color: var(--muted-fg); margin-bottom: 32px; }
+  .version-card {
+    display: block; text-decoration: none; color: var(--fg);
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px 24px; margin-bottom: 16px; box-shadow: var(--shadow);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .version-card:hover { border-color: var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .version-card h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .version-card .desc { font-size: 14px; color: var(--muted-fg); }
+  .version-card .pages { font-size: 12px; color: var(--muted-fg); margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="hub">
+  <h1>iTELL Teacher Dashboard Mockups</h1>
+  <p>Select a version to preview. Each version shares the same base styles but explores a different layout and information architecture.</p>
+
+  <a class="version-card" href="v1/index.html">
+    <h2>Version 1 &mdash; Classic SaaS</h2>
+    <div class="desc">Volume-centric layout with sidebar navigation. Workforce training context (employees, modules). Dynamic tabs for Summaries, Quick Questions, and Cloze that appear based on volume configuration. End-of-module activities vary per module (summary or cloze). Leaderboard with streak-based rankings, quiz results, and full employee drill-down.</div>
+    <div class="pages">5 pages: Overview &middot; Summaries &middot; Quick Questions &middot; Cloze &middot; Employee Detail</div>
+  </a>
+
+  <a class="version-card" href="v2/index.html">
+    <h2>Version 2 &mdash; Manager Executive Summary</h2>
+    <div class="desc">KPI-forward layout with sparklines, trend indicators, and period selectors. Designed for managers who need a 30-second status check. Large headline numbers with week-over-week trends, progress rings, top/bottom performer cards, and activity pass rate table with directional arrows.</div>
+    <div class="pages">5 pages: Overview &middot; Summaries &middot; Quick Questions &middot; Cloze &middot; Employee Detail</div>
+  </a>
+
+  <a class="version-card" href="v3/index.html">
+    <h2>Version 3 &mdash; Action-Oriented / Intervention</h2>
+    <div class="desc">Surfaces problems first with alert banners, risk pills, and failure-focused tables. At-risk employees and struggling modules are highlighted with recommended actions. Designed for training administrators who need to know what requires their attention right now.</div>
+    <div class="pages">5 pages: Overview &middot; Summaries &middot; Quick Questions &middot; Cloze &middot; Employee Detail</div>
+  </a>
+</div>
+
+</body>
+</html>
