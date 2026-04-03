@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V3 Intervention Dashboard - iTELL Teacher Dashboard Mockup</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+  /* V3-specific: Action-oriented / Intervention layout */
+  .alert-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .alert-banner svg { flex-shrink: 0; }
+  .alert-banner.alert-warning {
+    background: #fffbeb;
+    border: 1px solid #f59e0b;
+    color: #92400e;
+  }
+  .alert-banner.alert-danger {
+    background: #fef2f2;
+    border: 1px solid var(--error);
+    color: var(--error);
+  }
+  .alert-banner .alert-action {
+    margin-left: auto;
+    padding: 5px 14px;
+    border-radius: var(--radius);
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid currentColor;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  /* Risk score pill */
+  .risk-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .risk-high { background: #fef2f2; color: var(--error); }
+  .risk-medium { background: #fffbeb; color: #b45309; }
+  .risk-low { background: #ecfdf5; color: var(--success); }
+
+  /* Action item */
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .action-item .action-title { font-weight: 600; margin-bottom: 2px; }
+  .action-item .action-desc { font-size: 13px; color: var(--muted-fg); }
+  .action-item .action-right {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  /* Summary stat strip */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .stat-strip-item {
+    background: var(--card);
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-strip-item .strip-value {
+    font-size: 22px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-strip-item .strip-label {
+    font-size: 11px;
+    color: var(--muted-fg);
+    margin-top: 2px;
+  }
+
+  /* Intervention priority table */
+  .priority-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  /* Gauge meter */
+  .gauge-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .gauge-row .gauge-label { width: 120px; color: var(--muted-fg); }
+  .gauge-row .gauge-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--muted);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .gauge-row .gauge-fill { height: 100%; border-radius: 4px; }
+  .gauge-row .gauge-value { width: 40px; text-align: right; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="topbar">
+    <div class="breadcrumb"><a href="#">&larr; Back to acme-corp</a></div>
+    <div class="topbar-actions">
+      <span style="font-size:12px;color:var(--muted-fg);margin-right:8px;">Last updated: Today, 2:34 PM</span>
+      <button class="btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="volume-header">
+      <h1>Workplace Safety Manual</h1>
+      <p>Intervention dashboard &middot; 18 enrolled &middot; Showing items that need your attention</p>
+    </div>
+
+    <div class="tabs">
+      <a class="tab active" href="index.html">Dashboard</a>
+      <a class="tab" href="summaries.html">Summaries</a>
+      <a class="tab" href="quick-questions.html">Quick Questions</a>
+      <a class="tab" href="cloze.html">Cloze</a>
+      <a class="tab" href="#">People (18)</a>
+      <a class="tab" href="#">Settings</a>
+    </div>
+
+    <!-- Alert Banners -->
+    <div class="alert-banner alert-danger">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div><strong>3 employees</strong> have not started training or are significantly behind schedule.</div>
+      <button class="alert-action">View Details</button>
+    </div>
+    <div class="alert-banner alert-warning">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div>Module 4 (Emergency Response) has a <strong>58% cloze pass rate</strong> &mdash; below the 70% threshold.</div>
+      <button class="alert-action">Review Module</button>
+    </div>
+
+    <!-- At-a-Glance Strip -->
+    <div class="stat-strip">
+      <div class="stat-strip-item">
+        <div class="strip-value">18</div>
+        <div class="strip-label">Enrolled</div>
+      </div>
+      <div class="stat-strip-item">
+        <div class="strip-value" style="color:var(--success);">8</div>
+        <div class="strip-label">On Track</div>
+      </div>
+      <div class="stat-strip-item">
+        <div class="strip-value" style="color:var(--warning);">4</div>
+        <div class="strip-label">Falling Behind</div>
+      </div>
+      <div class="stat-strip-item">
+        <div class="strip-value" style="color:var(--error);">3</div>
+        <div class="strip-label">At Risk</div>
+      </div>
+      <div class="stat-strip-item">
+        <div class="strip-value" style="color:var(--muted-fg);">3</div>
+        <div class="strip-label">Not Started</div>
+      </div>
+    </div>
+
+    <!-- Two-column: At-Risk Employees + Recommended Actions -->
+    <div class="grid-2">
+      <!-- At-Risk Employees -->
+      <div class="card">
+        <div class="card-header" style="display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <h3 style="color:var(--error);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:4px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              At-Risk Employees
+            </h3>
+            <p>Require immediate attention</p>
+          </div>
+          <span class="risk-pill risk-high">6 flagged</span>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <table>
+            <thead><tr>
+              <th style="text-align:left;padding-left:20px;">Employee</th>
+              <th style="text-align:center;">Progress</th>
+              <th style="text-align:center;">Risk</th>
+              <th style="text-align:center;">Issue</th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td style="padding-left:20px;"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="font-weight:500;border-bottom:1px dashed var(--muted-fg);">David Nguyen</span></a><div style="font-size:12px;color:var(--muted-fg);">Last active: Never</div></td>
+                <td style="text-align:center;"><div class="progress-bar"><div class="progress-fill" style="width:0%;"></div></div> 0/10</td>
+                <td style="text-align:center;"><span class="risk-pill risk-high">&#9679; High</span></td>
+                <td style="text-align:center;font-size:13px;color:var(--muted-fg);">Never started</td>
+              </tr>
+              <tr>
+                <td style="padding-left:20px;"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="font-weight:500;border-bottom:1px dashed var(--muted-fg);">Tom Baker</span></a><div style="font-size:12px;color:var(--muted-fg);">Last active: 8 days ago</div></td>
+                <td style="text-align:center;"><div class="progress-bar"><div class="progress-fill" style="width:10%;background:var(--error);"></div></div> 1/10</td>
+                <td style="text-align:center;"><span class="risk-pill risk-high">&#9679; High</span></td>
+                <td style="text-align:center;font-size:13px;color:var(--muted-fg);">Inactive 8d</td>
+              </tr>
+              <tr>
+                <td style="padding-left:20px;"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="font-weight:500;border-bottom:1px dashed var(--muted-fg);">Lisa Thompson</span></a><div style="font-size:12px;color:var(--muted-fg);">Last active: 5 days ago</div></td>
+                <td style="text-align:center;"><div class="progress-bar"><div class="progress-fill" style="width:20%;background:var(--error);"></div></div> 2/10</td>
+                <td style="text-align:center;"><span class="risk-pill risk-high">&#9679; High</span></td>
+                <td style="text-align:center;font-size:13px;color:var(--muted-fg);">Failed summary</td>
+              </tr>
+              <tr>
+                <td style="padding-left:20px;"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="font-weight:500;border-bottom:1px dashed var(--muted-fg);">Kevin Williams</span></a><div style="font-size:12px;color:var(--muted-fg);">Last active: 2 days ago</div></td>
+                <td style="text-align:center;"><div class="progress-bar"><div class="progress-fill" style="width:50%;"></div></div> 5/10</td>
+                <td style="text-align:center;"><span class="risk-pill risk-medium">&#9679; Med</span></td>
+                <td style="text-align:center;font-size:13px;color:var(--muted-fg);">Low scores</td>
+              </tr>
+              <tr>
+                <td style="padding-left:20px;"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="font-weight:500;border-bottom:1px dashed var(--muted-fg);">Rachel Kim</span></a><div style="font-size:12px;color:var(--muted-fg);">Last active: 3 days ago</div></td>
+                <td style="text-align:center;"><div class="progress-bar"><div class="progress-fill" style="width:40%;"></div></div> 4/10</td>
+                <td style="text-align:center;"><span class="risk-pill risk-medium">&#9679; Med</span></td>
+                <td style="text-align:center;font-size:13px;color:var(--muted-fg);">Slowing down</td>
+              </tr>
+              <tr>
+                <td style="padding-left:20px;"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="font-weight:500;border-bottom:1px dashed var(--muted-fg);">Mike Johnson</span></a><div style="font-size:12px;color:var(--muted-fg);">Last active: 1 day ago</div></td>
+                <td style="text-align:center;"><div class="progress-bar"><div class="progress-fill" style="width:30%;"></div></div> 3/10</td>
+                <td style="text-align:center;"><span class="risk-pill risk-medium">&#9679; Med</span></td>
+                <td style="text-align:center;font-size:13px;color:var(--muted-fg);">Failed cloze x2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Recommended Actions -->
+      <div class="card">
+        <div class="card-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:4px;"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            Recommended Actions
+          </h3>
+          <p>Prioritized by impact</p>
+        </div>
+        <div class="card-body">
+          <div class="action-item">
+            <div class="action-icon" style="background:#fef2f2;color:var(--error);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="action-title">Send reminder to inactive employees</div>
+              <div class="action-desc">David Nguyen, Tom Baker, and Lisa Thompson have been inactive for 5+ days.</div>
+            </div>
+            <div class="action-right">
+              <span class="risk-pill risk-high">Urgent</span>
+            </div>
+          </div>
+          <div class="action-item">
+            <div class="action-icon" style="background:#fffbeb;color:#b45309;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="action-title">Review Module 4 content difficulty</div>
+              <div class="action-desc">Emergency Response cloze pass rate (58%) is well below the 70% threshold. Consider simplifying or adding supplementary material.</div>
+            </div>
+            <div class="action-right">
+              <span class="risk-pill risk-medium">Important</span>
+            </div>
+          </div>
+          <div class="action-item">
+            <div class="action-icon" style="background:#eff6ff;color:var(--info);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="action-title">Schedule check-in with Kevin Williams</div>
+              <div class="action-desc">Scores declining across summaries (1.05) and cloze (68%). May need additional support or mentoring.</div>
+            </div>
+            <div class="action-right">
+              <span class="risk-pill risk-medium">Important</span>
+            </div>
+          </div>
+          <div class="action-item">
+            <div class="action-icon" style="background:#ecfdf5;color:var(--success);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="action-title">Recognize top performers</div>
+              <div class="action-desc">Maria Rodriguez (90%), James Chen (70%), and Ana Garcia (80%) are ahead of schedule. Consider peer mentoring pairing.</div>
+            </div>
+            <div class="action-right">
+              <span class="risk-pill risk-low">Suggested</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module Health Overview -->
+    <div class="card">
+      <div class="card-header" style="display:flex;align-items:center;justify-content:space-between;">
+        <div><h3>Module Health</h3><p>Activity pass rates and completion across all modules</p></div>
+        <span style="font-size:12px;color:var(--muted-fg);">Modules below 70% pass rate are flagged</span>
+      </div>
+      <div class="card-body" style="padding:0;">
+        <table>
+          <thead><tr>
+            <th style="text-align:left;padding-left:20px;">Module</th>
+            <th style="text-align:center;">Type</th>
+            <th style="text-align:center;">Completion</th>
+            <th style="text-align:center;">Pass Rate</th>
+            <th style="text-align:center;">Avg Score</th>
+            <th style="text-align:center;">Status</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left;padding-left:20px;">1. Safety Orientation &amp; Culture</td>
+              <td style="text-align:center;"><span class="badge badge-primary">Summary</span></td>
+              <td style="text-align:center;">18/18</td>
+              <td style="text-align:center;"><span class="badge badge-success">92%</span></td>
+              <td style="text-align:center;"><span class="score-badge score-good">1.65</span></td>
+              <td style="text-align:center;"><span class="risk-pill risk-low">&#10003; Healthy</span></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;padding-left:20px;">2. Hazard Identification &amp; Risk Assessment</td>
+              <td style="text-align:center;"><span class="badge badge-info">Cloze</span></td>
+              <td style="text-align:center;">17/18</td>
+              <td style="text-align:center;"><span class="badge badge-success">88%</span></td>
+              <td style="text-align:center;"><span class="score-badge score-good">82%</span></td>
+              <td style="text-align:center;"><span class="risk-pill risk-low">&#10003; Healthy</span></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;padding-left:20px;">3. Personal Protective Equipment</td>
+              <td style="text-align:center;"><span class="badge badge-primary">Summary</span></td>
+              <td style="text-align:center;">16/18</td>
+              <td style="text-align:center;"><span class="badge badge-success">81%</span></td>
+              <td style="text-align:center;"><span class="score-badge score-good">1.38</span></td>
+              <td style="text-align:center;"><span class="risk-pill risk-low">&#10003; Healthy</span></td>
+            </tr>
+            <tr style="background:#fffbeb;">
+              <td style="text-align:left;padding-left:20px;font-weight:600;">4. Emergency Response Procedures</td>
+              <td style="text-align:center;"><span class="badge badge-info">Cloze</span></td>
+              <td style="text-align:center;">12/18</td>
+              <td style="text-align:center;"><span class="badge badge-warning">58%</span></td>
+              <td style="text-align:center;"><span class="score-badge score-ok">68%</span></td>
+              <td style="text-align:center;"><span class="risk-pill risk-high">&#9888; Needs Review</span></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;padding-left:20px;">5. Equipment Operation &amp; Maintenance</td>
+              <td style="text-align:center;"><span class="badge badge-primary">Summary</span></td>
+              <td style="text-align:center;">10/18</td>
+              <td style="text-align:center;"><span class="badge badge-success">75%</span></td>
+              <td style="text-align:center;"><span class="score-badge score-good">1.22</span></td>
+              <td style="text-align:center;"><span class="risk-pill risk-low">&#10003; Healthy</span></td>
+            </tr>
+            <tr style="background:#fffbeb;">
+              <td style="text-align:left;padding-left:20px;font-weight:600;">6. Chemical Safety &amp; HAZMAT</td>
+              <td style="text-align:center;"><span class="badge badge-info">Cloze</span></td>
+              <td style="text-align:center;">8/18</td>
+              <td style="text-align:center;"><span class="badge badge-warning">63%</span></td>
+              <td style="text-align:center;"><span class="score-badge score-ok">71%</span></td>
+              <td style="text-align:center;"><span class="risk-pill risk-medium">&#9679; Watch</span></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;padding-left:20px;">7. Confined Space Entry</td>
+              <td style="text-align:center;"><span class="badge badge-primary">Summary</span></td>
+              <td style="text-align:center;">6/18</td>
+              <td style="text-align:center;"><span class="badge badge-success">78%</span></td>
+              <td style="text-align:center;"><span class="score-badge score-good">1.48</span></td>
+              <td style="text-align:center;"><span class="risk-pill risk-low">&#10003; Healthy</span></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;padding-left:20px;">8. Electrical Safety</td>
+              <td style="text-align:center;"><span class="badge badge-info">Cloze</span></td>
+              <td style="text-align:center;">5/18</td>
+              <td style="text-align:center;"><span class="badge badge-success">80%</span></td>
+              <td style="text-align:center;"><span class="score-badge score-good">76%</span></td>
+              <td style="text-align:center;"><span class="risk-pill risk-low">&#10003; Healthy</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Activity Health Gauges + Failed Activity Feed -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header"><h3>Activity Health</h3><p>Pass rates by activity type</p></div>
+        <div class="card-body">
+          <div class="gauge-row">
+            <span class="gauge-label">Summaries</span>
+            <div class="gauge-bar"><div class="gauge-fill" style="width:73%;background:var(--success);"></div></div>
+            <span class="gauge-value" style="color:var(--success);">73%</span>
+          </div>
+          <div class="gauge-row">
+            <span class="gauge-label">Quick Questions</span>
+            <div class="gauge-bar"><div class="gauge-fill" style="width:63%;background:var(--warning);"></div></div>
+            <span class="gauge-value" style="color:#b45309;">63%</span>
+          </div>
+          <div class="gauge-row">
+            <span class="gauge-label">Cloze Tests</span>
+            <div class="gauge-bar"><div class="gauge-fill" style="width:73%;background:var(--success);"></div></div>
+            <span class="gauge-value" style="color:var(--success);">73%</span>
+          </div>
+          <div style="border-top:1px solid var(--border);margin-top:16px;padding-top:16px;">
+            <div style="font-size:13px;font-weight:600;margin-bottom:8px;">Threshold: 70% pass rate</div>
+            <div style="font-size:12px;color:var(--muted-fg);">Quick Questions Level 3+ rate is at 63%, below the recommended target. Consider reviewing question difficulty or providing additional reading support.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" style="display:flex;align-items:center;justify-content:space-between;">
+          <div><h3>Recent Failures</h3><p>Activities requiring follow-up</p></div>
+          <span style="font-size:12px;color:var(--error);font-weight:600;">12 in last 7 days</span>
+        </div>
+        <div class="card-body" style="font-size:13px;">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:start;">
+              <div>
+                <div style="font-weight:500;">Lisa Thompson &mdash; Summary failed</div>
+                <div style="color:var(--muted-fg);font-size:12px;">Module 2 &middot; Content: 0.52 (2nd attempt)</div>
+              </div>
+              <span class="risk-pill risk-high">Action needed</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:start;">
+              <div>
+                <div style="font-weight:500;">Mike Johnson &mdash; Cloze failed</div>
+                <div style="color:var(--muted-fg);font-size:12px;">Module 4 &middot; Score: 48% (2nd attempt)</div>
+              </div>
+              <span class="risk-pill risk-high">Action needed</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:start;">
+              <div>
+                <div style="font-weight:500;">Kevin Williams &mdash; Cloze failed</div>
+                <div style="color:var(--muted-fg);font-size:12px;">Module 4 &middot; Score: 62%</div>
+              </div>
+              <span class="risk-pill risk-medium">Monitor</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:start;">
+              <div>
+                <div style="font-weight:500;">Rachel Kim &mdash; Summary failed</div>
+                <div style="color:var(--muted-fg);font-size:12px;">Module 3 &middot; Content: 0.78</div>
+              </div>
+              <span class="risk-pill risk-medium">Monitor</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:start;">
+              <div>
+                <div style="font-weight:500;">Sarah Patel &mdash; Cloze failed</div>
+                <div style="color:var(--muted-fg);font-size:12px;">Module 6 &middot; Score: 65%</div>
+              </div>
+              <span class="risk-pill risk-medium">Monitor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="../shared-layout.js"></script>
+</body>
+</html>

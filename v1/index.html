@@ -3,169 +3,319 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iTELL Help Center</title>
-<link rel="stylesheet" href="../shared-kb.css">
+<title>V1 Dashboard - iTELL Teacher Dashboard Mockup</title>
+<link rel="stylesheet" href="../shared.css">
 </head>
 <body>
 
-<div class="kb-main">
-
-  <!-- Search Hero -->
-  <div class="kb-search-hero">
-    <h1>How can we help you?</h1>
-    <p>Search our knowledge base or browse categories below</p>
-    <div class="kb-search-box">
-      <svg class="kb-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input class="kb-search-input" type="text" placeholder="Search for articles... e.g. &quot;how to write a summary&quot;" />
+<div class="main">
+  <div class="topbar">
+    <div class="breadcrumb"><a href="#">&larr; Back to acme-corp</a></div>
+    <div class="topbar-actions">
+      <a class="btn" href="employee-detail.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        View as Employee
+      </a>
+      <button class="btn btn-destructive">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        Delete
+      </button>
     </div>
   </div>
 
-  <!-- Quick Links -->
-  <div class="kb-quick-links">
-    <a class="kb-quick-link" href="getting-started.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      Quick Start
-    </a>
-    <a class="kb-quick-link" href="summaries-evaluation.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      Writing Summaries
-    </a>
-    <a class="kb-quick-link" href="itell-ai.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      Using iTELL AI
-    </a>
-    <a class="kb-quick-link" href="faq.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      FAQ
-    </a>
-    <a class="kb-quick-link" href="reading-progress.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-      Reading Pages
-    </a>
-  </div>
-
-  <div class="kb-content">
-
-    <!-- Category Grid -->
-    <div class="kb-categories">
-
-      <a class="kb-category-card" href="getting-started.html">
-        <div class="kb-category-icon" style="background:var(--success-light);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <h3>Getting Started</h3>
-        <p>Create your account, sign in, and learn the basics of navigating iTELL.</p>
-        <div class="kb-category-count">2 articles</div>
-      </a>
-
-      <a class="kb-category-card" href="reading-progress.html">
-        <div class="kb-category-icon" style="background:var(--info-light);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--info)" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-        </div>
-        <h3>Reading & Progress</h3>
-        <p>Understand the page layout, unlock content, and track your reading progress.</p>
-        <div class="kb-category-count">3 articles</div>
-      </a>
-
-      <a class="kb-category-card" href="summaries-evaluation.html">
-        <div class="kb-category-icon" style="background:var(--primary-light);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <h3>Summaries & Evaluation</h3>
-        <p>Learn how to write page summaries, understand scoring, and improve with feedback.</p>
-        <div class="kb-category-count">3 articles</div>
-      </a>
-
-      <a class="kb-category-card" href="questions-cloze.html">
-        <div class="kb-category-icon" style="background:var(--warning-light);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </div>
-        <h3>Questions & Cloze</h3>
-        <p>Answer constructed response items and complete fill-in-the-blank activities.</p>
-        <div class="kb-category-count">2 articles</div>
-      </a>
-
-      <a class="kb-category-card" href="itell-ai.html">
-        <div class="kb-category-icon" style="background:var(--purple-light);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        </div>
-        <h3>iTELL AI Assistant</h3>
-        <p>Chat with the AI, get re-reading guidance, and ask questions about the text.</p>
-        <div class="kb-category-count">3 articles</div>
-      </a>
-
-      <a class="kb-category-card" href="dashboard.html">
-        <div class="kb-category-icon" style="background:var(--muted);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--muted-fg)" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        </div>
-        <h3>Dashboard & Stats</h3>
-        <p>View your statistics, browse past summaries, and review question history.</p>
-        <div class="kb-category-count">2 articles</div>
-      </a>
-
+  <div class="content">
+    <div class="volume-header">
+      <h1>Workplace Safety Manual</h1>
+      <p>Comprehensive training covering safety protocols, hazard identification, equipment handling, emergency procedures, and compliance requirements for all team members.</p>
     </div>
 
-    <!-- Popular Articles -->
-    <div class="kb-popular">
-      <h2>Popular Articles</h2>
-      <div class="kb-article-list">
-        <a class="kb-article-item" href="summaries-evaluation.html">
-          <div class="kb-article-item-left">
-            <svg class="kb-article-item-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span class="kb-article-item-title">How to write a passing summary</span>
-          </div>
-          <svg class="kb-article-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-        <a class="kb-article-item" href="reading-progress.html#unlocking-content">
-          <div class="kb-article-item-left">
-            <svg class="kb-article-item-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-            <span class="kb-article-item-title">How to unlock blurred content</span>
-          </div>
-          <svg class="kb-article-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-        <a class="kb-article-item" href="itell-ai.html">
-          <div class="kb-article-item-left">
-            <svg class="kb-article-item-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-            <span class="kb-article-item-title">Using iTELL AI to improve your understanding</span>
-          </div>
-          <svg class="kb-article-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-        <a class="kb-article-item" href="getting-started.html">
-          <div class="kb-article-item-left">
-            <svg class="kb-article-item-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <span class="kb-article-item-title">Creating your account and signing in</span>
-          </div>
-          <svg class="kb-article-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-        <a class="kb-article-item" href="questions-cloze.html">
-          <div class="kb-article-item-left">
-            <svg class="kb-article-item-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            <span class="kb-article-item-title">Answering constructed response questions</span>
-          </div>
-          <svg class="kb-article-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
+    <!-- Tabs — dynamic: Summaries, Quick Questions, Cloze only appear if enabled for this volume -->
+    <div class="tabs">
+      <a class="tab active" href="index.html">Dashboard</a>
+      <a class="tab" href="summaries.html">Summaries</a>
+      <!-- shown because this volume uses summaries as end-of-page activity for some modules -->
+      <a class="tab" href="quick-questions.html">Quick Questions</a>
+      <a class="tab" href="cloze.html">Cloze</a>
+      <!-- shown because this volume uses cloze as end-of-page activity for some modules -->
+      <a class="tab" href="#">People (18)</a>
+      <a class="tab" href="#">Settings</a>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div><div class="stat-label">Enrolled</div><div class="stat-value">18</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <div><div class="stat-label">Modules</div><div class="stat-value">10</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#ecfdf5;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2d8a4e" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div><div class="stat-label">Completion Rate</div><div class="stat-value">44%</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#fff7ed;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c05621" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div><div class="stat-label">Avg Progress</div><div class="stat-value">58%</div></div>
       </div>
     </div>
 
-    <!-- Contact Card -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-      <div class="kb-contact-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <h3>Contact Support</h3>
-        <p>Can't find what you're looking for? Our team is happy to help.</p>
-        <a class="btn" href="mailto:lear.lab.vu@gmail.com">Email Us</a>
+    <!-- Team Member Table -->
+    <div class="card">
+      <div class="card-header" style="display:flex;align-items:center;justify-content:space-between;">
+        <div><h3>Team Members</h3><p>All enrolled employees and their progress</p></div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export
+          </button>
+          <button class="btn">Columns</button>
+        </div>
       </div>
-      <div class="kb-contact-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        <h3>Frequently Asked Questions</h3>
-        <p>Browse answers to the most common questions about iTELL.</p>
-        <a class="btn" href="faq.html">View FAQ</a>
+      <div class="card-body" style="padding:0;">
+        <div class="filter-bar" style="padding:16px 20px 0;"><input class="search-input" placeholder="Filter by name..." /></div>
+        <div class="table-wrapper">
+          <table>
+            <!-- Dynamic columns: Summary Score and Cloze Score appear because this volume has modules using both activity types -->
+            <thead><tr>
+              <th>Employee</th><th>Progress</th>
+              <th>Summary Score</th><!-- dynamic: only shown if volume has summary modules -->
+              <th>Cloze Score</th><!-- dynamic: only shown if volume has cloze modules -->
+              <th>Status</th><th>Time Spent</th><th>Started</th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td><div class="learner-cell"><div class="avatar" style="background:#c05621;">MR</div><div><div class="learner-name"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="border-bottom:1px dashed var(--muted-fg);">Maria Rodriguez</span></a></div><div class="learner-email">mrodriguez@acme-corp.com</div></div></div></td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:90%;background:var(--success);"></div></div><span style="font-variant-numeric:tabular-nums;">9/10</span></td>
+                <td><span class="score-badge score-good">1.82</span></td>
+                <td><span class="score-badge score-good">86%</span></td>
+                <td><span class="badge badge-success">&#9679; Completed</span></td>
+                <td style="font-variant-numeric:tabular-nums;">12h 45m</td>
+                <td style="font-variant-numeric:tabular-nums;">1/10/2026</td>
+              </tr>
+              <tr>
+                <td><div class="learner-cell"><div class="avatar" style="background:#7c5cbf;">JC</div><div><div class="learner-name"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="border-bottom:1px dashed var(--muted-fg);">James Chen</span></a></div><div class="learner-email">jchen@acme-corp.com</div></div></div></td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:70%;"></div></div><span style="font-variant-numeric:tabular-nums;">7/10</span></td>
+                <td><span class="score-badge score-good">1.62</span></td>
+                <td><span class="score-badge score-good">84%</span></td>
+                <td><span class="badge badge-info">&#9679; In progress</span></td>
+                <td style="font-variant-numeric:tabular-nums;">9h 30m</td>
+                <td style="font-variant-numeric:tabular-nums;">1/12/2026</td>
+              </tr>
+              <tr>
+                <td><div class="learner-cell"><div class="avatar" style="background:#2d8a4e;">SP</div><div><div class="learner-name"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="border-bottom:1px dashed var(--muted-fg);">Sarah Patel</span></a></div><div class="learner-email">spatel@acme-corp.com</div></div></div></td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:60%;"></div></div><span style="font-variant-numeric:tabular-nums;">6/10</span></td>
+                <td><span class="score-badge score-ok">1.15</span></td>
+                <td><span class="score-badge score-ok">72%</span></td>
+                <td><span class="badge badge-info">&#9679; In progress</span></td>
+                <td style="font-variant-numeric:tabular-nums;">7h 10m</td>
+                <td style="font-variant-numeric:tabular-nums;">1/15/2026</td>
+              </tr>
+              <tr>
+                <td><div class="learner-cell"><div class="avatar" style="background:#3b7dd8;">KW</div><div><div class="learner-name"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="border-bottom:1px dashed var(--muted-fg);">Kevin Williams</span></a></div><div class="learner-email">kwilliams@acme-corp.com</div></div></div></td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:50%;"></div></div><span style="font-variant-numeric:tabular-nums;">5/10</span></td>
+                <td><span class="score-badge score-ok">1.05</span></td>
+                <td><span class="score-badge score-ok">68%</span></td>
+                <td><span class="badge badge-info">&#9679; In progress</span></td>
+                <td style="font-variant-numeric:tabular-nums;">5h 20m</td>
+                <td style="font-variant-numeric:tabular-nums;">1/20/2026</td>
+              </tr>
+              <tr>
+                <td><div class="learner-cell"><div class="avatar" style="background:#b45309;">LT</div><div><div class="learner-name"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="border-bottom:1px dashed var(--muted-fg);">Lisa Thompson</span></a></div><div class="learner-email">lthompson@acme-corp.com</div></div></div></td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:20%;background:var(--error);"></div></div><span style="font-variant-numeric:tabular-nums;">2/10</span></td>
+                <td><span class="score-badge score-low">0.52</span></td>
+                <td><span style="color:var(--muted-fg);">&mdash;</span></td>
+                <td><span class="badge badge-warning">&#9679; Behind</span></td>
+                <td style="font-variant-numeric:tabular-nums;">1h 45m</td>
+                <td style="font-variant-numeric:tabular-nums;">2/01/2026</td>
+              </tr>
+              <tr>
+                <td><div class="learner-cell"><div class="avatar" style="background:#64748b;">DN</div><div><div class="learner-name"><a href="employee-detail.html" style="color:inherit;text-decoration:none;"><span style="border-bottom:1px dashed var(--muted-fg);">David Nguyen</span></a></div><div class="learner-email">dnguyen@acme-corp.com</div></div></div></td>
+                <td><div class="progress-bar"><div class="progress-fill" style="width:0%;"></div></div><span style="font-variant-numeric:tabular-nums;">0/10</span></td>
+                <td><span style="color:var(--muted-fg);">&mdash;</span></td>
+                <td><span style="color:var(--muted-fg);">&mdash;</span></td>
+                <td><span class="badge badge-muted">&#9675; Not started</span></td>
+                <td style="font-variant-numeric:tabular-nums;">&lt;1m</td>
+                <td style="font-variant-numeric:tabular-nums;">2/10/2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination" style="padding:0 20px;">
+          <span>Showing 1 to 6 of 18 team members</span>
+          <div class="pagination-btns"><button class="btn" disabled style="opacity:0.5;">Previous</button><button class="btn">Next</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module Timeline -->
+    <div class="card">
+      <div class="card-header">
+        <div class="timeline-header">
+          <h3>Module Timeline</h3>
+          <div class="timeline-meta">
+            <span><div class="progress-bar" style="width:80px;"><div class="progress-fill" style="width:58%;"></div></div> 58%</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/></svg> 18 members</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~7h avg</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body" style="padding:0;">
+        <div class="timeline-item completed">
+          <div class="dot">&#10003;</div>
+          <div class="timeline-info"><div class="title">Safety Orientation &amp; Culture</div><div class="sub">Module 1 &middot; End-of-module: <strong>Summary</strong></div></div>
+          <div class="timeline-right"><span>1h 05m</span><span class="badge badge-success">18/18</span></div>
+        </div>
+        <div class="timeline-item completed">
+          <div class="dot">&#10003;</div>
+          <div class="timeline-info"><div class="title">Hazard Identification &amp; Risk Assessment</div><div class="sub">Module 2 &middot; End-of-module: <strong>Cloze</strong></div></div>
+          <div class="timeline-right"><span>1h 30m</span><span class="badge badge-success">17/18</span></div>
+        </div>
+        <div class="timeline-item completed">
+          <div class="dot">&#10003;</div>
+          <div class="timeline-info"><div class="title">Personal Protective Equipment</div><div class="sub">Module 3 &middot; End-of-module: <strong>Summary</strong></div></div>
+          <div class="timeline-right"><span>1h 50m</span><span class="badge badge-success">16/18</span></div>
+        </div>
+        <div class="timeline-item in-progress">
+          <div class="dot" style="font-size:10px;">&#9654;</div>
+          <div class="timeline-info"><div class="title">Emergency Response Procedures</div><div class="sub">Module 4 &middot; End-of-module: <strong>Cloze</strong></div></div>
+          <div class="timeline-right"><span>1h 15m</span><span class="badge badge-info">12/18</span></div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot default">&mdash;</div>
+          <div class="timeline-info"><div class="title">Equipment Operation &amp; Maintenance</div><div class="sub">Module 5 &middot; End-of-module: <strong>Summary</strong></div></div>
+          <div class="timeline-right"><span>&lt;1m</span><span class="badge badge-muted">Not started</span></div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot default">&mdash;</div>
+          <div class="timeline-info"><div class="title">Chemical Safety &amp; HAZMAT</div><div class="sub">Module 6 &middot; End-of-module: <strong>Cloze</strong></div></div>
+          <div class="timeline-right"><span>&lt;1m</span><span class="badge badge-muted">Not started</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard + Activity Log -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header"><h3>Leaderboard</h3><p>Ranked by consecutive streaks</p></div>
+        <div class="card-body" style="padding:0;">
+          <table>
+            <thead><tr><th style="text-align:left;padding-left:20px;">#</th><th style="text-align:left;">Employee</th><th style="text-align:center;">Summary Streak</th><th style="text-align:center;">Question Streak</th></tr></thead>
+            <tbody>
+              <tr><td style="text-align:left;padding-left:20px;font-weight:700;color:var(--primary);">1</td><td style="text-align:left;">Maria Rodriguez</td><td style="text-align:center;"><span style="font-weight:600;">7</span></td><td style="text-align:center;"><span style="font-weight:600;">12</span></td></tr>
+              <tr><td style="text-align:left;padding-left:20px;font-weight:700;color:var(--chart-2);">2</td><td style="text-align:left;">James Chen</td><td style="text-align:center;"><span style="font-weight:600;">5</span></td><td style="text-align:center;"><span style="font-weight:600;">9</span></td></tr>
+              <tr><td style="text-align:left;padding-left:20px;font-weight:700;color:#b45309;">3</td><td style="text-align:left;">Sarah Patel</td><td style="text-align:center;"><span style="font-weight:600;">4</span></td><td style="text-align:center;"><span style="font-weight:600;">8</span></td></tr>
+              <tr><td style="text-align:left;padding-left:20px;">4</td><td style="text-align:left;">Kevin Williams</td><td style="text-align:center;">3</td><td style="text-align:center;">6</td></tr>
+              <tr><td style="text-align:left;padding-left:20px;">5</td><td style="text-align:left;">Ana Garcia</td><td style="text-align:center;">2</td><td style="text-align:center;">5</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Activity Log</h3></div>
+        <div class="card-body" style="font-size:13px;">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:start;"><div><div style="font-weight:500;">Maria Rodriguez completed Module 3</div><div style="color:var(--muted-fg);font-size:12px;">Summary passed with score 1.88</div></div><span style="color:var(--muted-fg);font-size:12px;white-space:nowrap;">2h ago</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:start;"><div><div style="font-weight:500;">James Chen started Module 4</div><div style="color:var(--muted-fg);font-size:12px;">Emergency Response Procedures</div></div><span style="color:var(--muted-fg);font-size:12px;white-space:nowrap;">3h ago</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:start;"><div><div style="font-weight:500;">Sarah Patel answered Quick Question</div><div style="color:var(--muted-fg);font-size:12px;">Module 3 &mdash; Level 4 (correct)</div></div><span style="color:var(--muted-fg);font-size:12px;white-space:nowrap;">5h ago</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:start;"><div><div style="font-weight:500;">Lisa Thompson failed summary</div><div style="color:var(--muted-fg);font-size:12px;">Module 2 &mdash; Score: 0.68 (retry needed)</div></div><span style="color:var(--muted-fg);font-size:12px;white-space:nowrap;">6h ago</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Results -->
+    <div class="card">
+      <div class="card-header"><h3>Quiz Results</h3><p>Performance on embedded quizzes by module</p></div>
+      <div class="card-body" style="padding:0;">
+        <div class="table-wrapper">
+          <table>
+            <thead><tr>
+              <th style="text-align:left;padding-left:20px;">Employee</th>
+              <th style="text-align:center;">Quiz 1:<br>Safety Basics</th>
+              <th style="text-align:center;">Quiz 2:<br>Hazard ID</th>
+              <th style="text-align:center;">Quiz 3:<br>PPE</th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td style="text-align:left;padding-left:20px;">Maria Rodriguez</td>
+                <td style="text-align:center;"><span class="score-badge score-good">9/10</span></td>
+                <td style="text-align:center;"><span class="score-badge score-good">8/10</span></td>
+                <td style="text-align:center;"><span class="score-badge score-good">10/10</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:left;padding-left:20px;">James Chen</td>
+                <td style="text-align:center;"><span class="score-badge score-good">8/10</span></td>
+                <td style="text-align:center;"><span class="score-badge score-ok">6/10</span></td>
+                <td style="text-align:center;"><span class="score-badge score-good">9/10</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:left;padding-left:20px;">Sarah Patel</td>
+                <td style="text-align:center;"><span class="score-badge score-good">7/10</span></td>
+                <td style="text-align:center;"><span class="score-badge score-good">7/10</span></td>
+                <td style="text-align:center;"><span style="color:var(--muted-fg);">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:left;padding-left:20px;">Kevin Williams</td>
+                <td style="text-align:center;"><span class="score-badge score-ok">5/10</span></td>
+                <td style="text-align:center;"><span class="score-badge score-low">4/10</span></td>
+                <td style="text-align:center;"><span style="color:var(--muted-fg);">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:left;padding-left:20px;">Lisa Thompson</td>
+                <td style="text-align:center;"><span class="score-badge score-low">3/10</span></td>
+                <td style="text-align:center;"><span style="color:var(--muted-fg);">&mdash;</span></td>
+                <td style="text-align:center;"><span style="color:var(--muted-fg);">&mdash;</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row: Current Module + Mean Stats -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header"><h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:6px;"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg> Current Module</h3></div>
+        <div class="card-body">
+          <div style="font-weight:600;font-size:16px;margin-bottom:4px;">Emergency Response Procedures</div>
+          <div style="font-size:13px;color:var(--muted-fg);margin-bottom:16px;">Module 4 &middot; End-of-module: Cloze</div>
+          <div style="border-top:1px solid var(--border);padding-top:12px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:13px;color:var(--muted-fg);">Status</span><span class="badge badge-info">&#9679; In Progress</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:13px;color:var(--muted-fg);">Active Members</span><span style="font-size:14px;font-weight:600;">12 / 18</span></div>
+            <div style="display:flex;justify-content:space-between;"><span style="font-size:13px;color:var(--muted-fg);">Activities</span><span style="font-size:14px;font-weight:600;">3</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><h3>Mean Team Statistics</h3><p>Aggregate across all activity types</p></div>
+        <div class="card-body" style="padding:0;">
+          <table>
+            <thead><tr><th style="text-align:left;padding-left:20px;">Type</th><th style="text-align:center;">Completed</th><th style="text-align:center;">Passed</th><th style="text-align:center;">Pass Rate</th></tr></thead>
+            <tbody>
+              <tr><td style="text-align:left;padding-left:20px;">Summaries</td><td style="text-align:center;">6.2</td><td style="text-align:center;">4.8</td><td style="text-align:center;"><span class="badge badge-success">77%</span></td></tr>
+              <tr><td style="text-align:left;padding-left:20px;">Quick Questions</td><td style="text-align:center;">18.4</td><td style="text-align:center;">14.1</td><td style="text-align:center;"><span class="badge badge-success">77%</span></td></tr>
+              <tr><td style="text-align:left;padding-left:20px;">Cloze</td><td style="text-align:center;">12.6</td><td style="text-align:center;">9.0</td><td style="text-align:center;"><span class="badge badge-warning">71%</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
   </div>
 </div>
 
-<script src="../shared-kb-layout.js"></script>
+<script src="../shared-layout.js"></script>
 </body>
 </html>

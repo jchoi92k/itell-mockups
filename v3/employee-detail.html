@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lisa Thompson - Employee Detail - iTELL Teacher Dashboard Mockup</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+  /* V3-specific: Action-oriented / Intervention detail page */
+  .alert-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .alert-banner svg { flex-shrink: 0; }
+  .alert-banner.alert-warning {
+    background: #fffbeb;
+    border: 1px solid #f59e0b;
+    color: #92400e;
+  }
+  .alert-banner.alert-danger {
+    background: #fef2f2;
+    border: 1px solid var(--error);
+    color: var(--error);
+  }
+  .risk-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .risk-high { background: #fef2f2; color: var(--error); }
+  .risk-medium { background: #fffbeb; color: #b45309; }
+  .risk-low { background: #ecfdf5; color: var(--success); }
+  .gauge-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .gauge-row .gauge-label { width: 140px; color: var(--muted-fg); }
+  .gauge-row .gauge-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--muted);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .gauge-row .gauge-fill { height: 100%; border-radius: 4px; }
+  .gauge-row .gauge-value { width: 40px; text-align: right; font-weight: 600; }
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .action-item .action-title { font-weight: 600; margin-bottom: 2px; }
+  .action-item .action-desc { font-size: 13px; color: var(--muted-fg); }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="topbar">
+    <div class="breadcrumb">
+      <a href="index.html">&larr; Back to Dashboard</a>
+      <span class="sep">/</span>
+      <span style="color:var(--fg);font-weight:500;">Lisa Thompson</span>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        View as this Employee
+      </button>
+      <a class="btn" href="index.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        All Team Members
+      </a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- 1. Employee Profile Header -->
+    <div class="student-profile">
+      <div class="student-avatar" style="background:var(--error);">LT</div>
+      <div class="student-info">
+        <h1>Lisa Thompson</h1>
+        <div class="email">lthompson@acme-corp.com</div>
+        <div class="meta">
+          <span>Joined Feb 1, 2026</span>
+          <span class="risk-pill risk-high">&#9679; At Risk</span>
+          <span>Last active: 5 days ago</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Alert Banner -->
+    <div class="alert-banner alert-danger">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div>Lisa has completed only <strong>2 of 10 modules</strong> and has been inactive for <strong>5 days</strong>. Her summary score (0.52) is well below the team average (1.42). <strong>Immediate follow-up recommended.</strong></div>
+    </div>
+
+    <!-- 3. Stat Mini Cards -->
+    <div class="grid-4">
+      <div class="stat-mini" style="border-left:3px solid var(--error);">
+        <div class="label">Progress</div>
+        <div class="value" style="color:var(--error);">20%</div>
+        <div class="sub">2/10 modules</div>
+        <div class="sub" style="color:var(--error);font-weight:600;">8 modules behind</div>
+      </div>
+      <div class="stat-mini" style="border-left:3px solid var(--error);">
+        <div class="label">Summary Score</div>
+        <div class="value">0.52</div>
+        <div class="sub" style="color:var(--error);font-weight:600;">-0.90 below team avg</div>
+      </div>
+      <div class="stat-mini">
+        <div class="label">Time Spent</div>
+        <div class="value">1h 45m</div>
+        <div class="sub">~53m per module</div>
+      </div>
+      <div class="stat-mini">
+        <div class="label">Last Active</div>
+        <div class="value">5 days ago</div>
+        <div class="sub">Feb 1 &ndash; Mar 7</div>
+      </div>
+    </div>
+
+    <!-- 4. Two-Column: Performance Gap + Recommended Actions -->
+    <div class="grid-2">
+
+      <!-- Left: Performance Gap Analysis -->
+      <div class="card">
+        <div class="card-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:4px;"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+            Performance Gap Analysis
+          </h3>
+          <p>Lisa vs Team Average</p>
+        </div>
+        <div class="card-body">
+          <!-- Summary Content -->
+          <div style="font-size:12px;font-weight:600;color:var(--muted-fg);margin-bottom:6px;">Summary Content Score</div>
+          <div class="gauge-row">
+            <span class="gauge-label">Lisa</span>
+            <div class="gauge-bar"><div class="gauge-fill" style="width:26%;background:var(--error);"></div></div>
+            <span class="gauge-value" style="color:var(--error);">0.52</span>
+          </div>
+          <div class="gauge-row" style="margin-bottom:18px;">
+            <span class="gauge-label" style="font-size:12px;">Team Avg</span>
+            <div class="gauge-bar"><div class="gauge-fill" style="width:71%;background:var(--muted-fg);opacity:0.5;"></div></div>
+            <span class="gauge-value" style="color:var(--muted-fg);">1.42</span>
+          </div>
+
+          <!-- Quick Questions -->
+          <div style="font-size:12px;font-weight:600;color:var(--muted-fg);margin-bottom:6px;">Quick Questions (Avg Level)</div>
+          <div class="gauge-row">
+            <span class="gauge-label">Lisa</span>
+            <div class="gauge-bar"><div class="gauge-fill" style="width:38%;background:var(--error);"></div></div>
+            <span class="gauge-value" style="color:var(--error);">1.5</span>
+          </div>
+          <div class="gauge-row" style="margin-bottom:18px;">
+            <span class="gauge-label" style="font-size:12px;">Team Avg</span>
+            <div class="gauge-bar"><div class="gauge-fill" style="width:70%;background:var(--muted-fg);opacity:0.5;"></div></div>
+            <span class="gauge-value" style="color:var(--muted-fg);">2.8</span>
+          </div>
+
+          <!-- Cloze -->
+          <div style="font-size:12px;font-weight:600;color:var(--muted-fg);margin-bottom:6px;">Cloze Score</div>
+          <div class="gauge-row" style="margin-bottom:18px;">
+            <span class="gauge-label">Lisa</span>
+            <div class="gauge-bar"></div>
+            <span class="gauge-value" style="font-size:11px;width:auto;color:var(--muted-fg);font-weight:400;">No cloze attempts</span>
+          </div>
+
+          <!-- Quiz Average -->
+          <div style="font-size:12px;font-weight:600;color:var(--muted-fg);margin-bottom:6px;">Quiz Average</div>
+          <div class="gauge-row">
+            <span class="gauge-label">Lisa</span>
+            <div class="gauge-bar"><div class="gauge-fill" style="width:30%;background:var(--error);"></div></div>
+            <span class="gauge-value" style="color:var(--error);">30%</span>
+          </div>
+          <div class="gauge-row">
+            <span class="gauge-label" style="font-size:12px;">Team Avg</span>
+            <div class="gauge-bar"><div class="gauge-fill" style="width:73%;background:var(--muted-fg);opacity:0.5;"></div></div>
+            <span class="gauge-value" style="color:var(--muted-fg);">73%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Recommended Actions -->
+      <div class="card">
+        <div class="card-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:4px;"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            Recommended Actions
+          </h3>
+          <p>Prioritized interventions for Lisa</p>
+        </div>
+        <div class="card-body">
+          <div class="action-item">
+            <div class="action-icon" style="background:#fef2f2;color:var(--error);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="action-title">Schedule 1-on-1 check-in</div>
+              <div class="action-desc">Lisa may be struggling with the material or facing external constraints. Direct conversation recommended.</div>
+            </div>
+            <div style="margin-left:auto;"><span class="risk-pill risk-high">Urgent</span></div>
+          </div>
+          <div class="action-item">
+            <div class="action-icon" style="background:#fffbeb;color:#b45309;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="action-title">Review Module 2 summary attempt</div>
+              <div class="action-desc">Content score 0.52 on 2nd attempt suggests comprehension difficulty, not just writing quality.</div>
+            </div>
+            <div style="margin-left:auto;"><span class="risk-pill risk-medium">Important</span></div>
+          </div>
+          <div class="action-item">
+            <div class="action-icon" style="background:#eff6ff;color:var(--info);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="action-title">Consider paired learning</div>
+              <div class="action-desc">Pair with a top performer like Maria Rodriguez for Module 3 onward.</div>
+            </div>
+            <div style="margin-left:auto;"><span class="risk-pill risk-low">Suggested</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 5. Module Progress -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Module Progress</h3>
+        <p>Workplace Safety Manual &mdash; 2 of 10 modules attempted</p>
+      </div>
+      <div class="card-body">
+        <!-- Module 1: Completed but struggling -->
+        <div class="lesson-row">
+          <div class="lesson-num lesson-completed">1</div>
+          <div class="lesson-details">
+            <div class="title">Safety Orientation &amp; Culture</div>
+            <div class="sub">Summary &mdash; Completed (borderline pass)</div>
+          </div>
+          <div class="lesson-stats">
+            <span>Content: <strong style="color:var(--error);">0.68</strong></span>
+            <span>Questions: 2/5</span>
+            <span>55m</span>
+          </div>
+        </div>
+
+        <!-- Module 2: Failed -->
+        <div class="lesson-row">
+          <div class="lesson-num" style="background:#fef2f2;color:var(--error);">2</div>
+          <div class="lesson-details">
+            <div class="title">Hazard Identification &amp; Risk Assessment</div>
+            <div class="sub">Cloze &mdash; Failed (48%)</div>
+          </div>
+          <div class="lesson-stats">
+            <span class="risk-pill risk-high">Failed</span>
+            <span>Questions: 1/5</span>
+            <span>50m</span>
+          </div>
+        </div>
+
+        <!-- Modules 3-10: Locked -->
+        <div class="lesson-row">
+          <div class="lesson-num lesson-locked">3</div>
+          <div class="lesson-details">
+            <div class="title">Personal Protective Equipment</div>
+            <div class="sub" style="color:var(--muted-fg);">Not started</div>
+          </div>
+          <div class="lesson-stats"><span class="badge badge-muted">Locked</span></div>
+        </div>
+        <div class="lesson-row">
+          <div class="lesson-num lesson-locked">4</div>
+          <div class="lesson-details">
+            <div class="title">Emergency Response Procedures</div>
+            <div class="sub" style="color:var(--muted-fg);">Not started</div>
+          </div>
+          <div class="lesson-stats"><span class="badge badge-muted">Locked</span></div>
+        </div>
+        <div class="lesson-row">
+          <div class="lesson-num lesson-locked">5</div>
+          <div class="lesson-details">
+            <div class="title">Equipment Operation &amp; Maintenance</div>
+            <div class="sub" style="color:var(--muted-fg);">Not started</div>
+          </div>
+          <div class="lesson-stats"><span class="badge badge-muted">Locked</span></div>
+        </div>
+        <div class="lesson-row">
+          <div class="lesson-num lesson-locked">6</div>
+          <div class="lesson-details">
+            <div class="title">Chemical Safety &amp; HAZMAT</div>
+            <div class="sub" style="color:var(--muted-fg);">Not started</div>
+          </div>
+          <div class="lesson-stats"><span class="badge badge-muted">Locked</span></div>
+        </div>
+        <div class="lesson-row">
+          <div class="lesson-num lesson-locked">7</div>
+          <div class="lesson-details">
+            <div class="title">Confined Space Entry</div>
+            <div class="sub" style="color:var(--muted-fg);">Not started</div>
+          </div>
+          <div class="lesson-stats"><span class="badge badge-muted">Locked</span></div>
+        </div>
+        <div class="lesson-row">
+          <div class="lesson-num lesson-locked">8</div>
+          <div class="lesson-details">
+            <div class="title">Electrical Safety</div>
+            <div class="sub" style="color:var(--muted-fg);">Not started</div>
+          </div>
+          <div class="lesson-stats"><span class="badge badge-muted">Locked</span></div>
+        </div>
+        <div class="lesson-row">
+          <div class="lesson-num lesson-locked">9</div>
+          <div class="lesson-details">
+            <div class="title">Fall Protection &amp; Working at Heights</div>
+            <div class="sub" style="color:var(--muted-fg);">Not started</div>
+          </div>
+          <div class="lesson-stats"><span class="badge badge-muted">Locked</span></div>
+        </div>
+        <div class="lesson-row">
+          <div class="lesson-num lesson-locked">10</div>
+          <div class="lesson-details">
+            <div class="title">Incident Reporting &amp; Investigation</div>
+            <div class="sub" style="color:var(--muted-fg);">Not started</div>
+          </div>
+          <div class="lesson-stats"><span class="badge badge-muted">Locked</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Recent Activity Feed -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Recent Activity</h3>
+        <p>Latest actions and events</p>
+      </div>
+      <div class="card-body" style="padding:0;">
+        <div class="timeline-item" style="border-left-color:var(--error);">
+          <div class="dot" style="background:#fef2f2;color:var(--error);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </div>
+          <div class="timeline-info">
+            <div class="title">Failed summary retry &mdash; Module 2</div>
+            <div class="sub">Content score: 0.52 (2nd attempt, below pass)</div>
+          </div>
+          <div class="timeline-right">5 days ago</div>
+        </div>
+        <div class="timeline-item" style="border-left-color:var(--warning);">
+          <div class="dot" style="background:#fffbeb;color:#b45309;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="timeline-info">
+            <div class="title">Answered Quick Question &mdash; Module 2</div>
+            <div class="sub">Level 1 &mdash; Missing many relevant details</div>
+          </div>
+          <div class="timeline-right">5 days ago</div>
+        </div>
+        <div class="timeline-item" style="border-left-color:var(--primary);">
+          <div class="dot" style="background:#fff7ed;color:var(--primary);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          </div>
+          <div class="timeline-info">
+            <div class="title">Started Module 2: Hazard Identification</div>
+            <div class="sub">Currently stalled</div>
+          </div>
+          <div class="timeline-right">7 days ago</div>
+        </div>
+        <div class="timeline-item completed">
+          <div class="dot" style="background:#ecfdf5;color:var(--success);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="timeline-info">
+            <div class="title">Completed Module 1: Safety Orientation</div>
+            <div class="sub">Summary passed (borderline) &mdash; Content: 0.68</div>
+          </div>
+          <div class="timeline-right">8 days ago</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="../shared-layout.js"></script>
+</body>
+</html>

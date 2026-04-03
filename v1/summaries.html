@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V1 Summaries - iTELL Teacher Dashboard Mockup</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+  /* Pie chart mockup */
+  .pie-container { display: flex; align-items: center; justify-content: center; gap: 40px; padding: 20px 0; }
+  .pie-legend { display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+  .pie-legend-item { display: flex; align-items: center; gap: 8px; }
+  .pie-legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+  .pie-legend-value { font-weight: 700; font-size: 18px; margin-left: auto; padding-left: 20px; }
+  .filter-select {
+    padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius);
+    font-size: 13px; background: var(--card); color: var(--fg); min-width: 200px;
+  }
+</style>
+</head>
+<body>
+
+<div class="main">
+  <div class="topbar">
+    <div class="breadcrumb"><a href="index.html">&larr; Back to Dashboard</a></div>
+    <div><button class="btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export</button></div>
+  </div>
+
+  <div class="content">
+    <div class="volume-header"><h1>Summary Submissions</h1><p>Comprehension through summarization &mdash; Workplace Safety Manual</p></div>
+
+    <div class="tabs">
+      <a class="tab" href="index.html">Dashboard</a>
+      <a class="tab active" href="summaries.html">Summaries</a>
+      <a class="tab" href="quick-questions.html">Quick Questions</a>
+      <a class="tab" href="cloze.html">Cloze</a>
+      <a class="tab" href="#">People (18)</a>
+      <a class="tab" href="#">Settings</a>
+    </div>
+
+    <!-- Module filter -->
+    <div style="margin-bottom:24px;display:flex;align-items:center;gap:12px;">
+      <span style="font-size:13px;color:var(--muted-fg);">Filter by module:</span>
+      <select class="filter-select">
+        <option>All modules</option>
+        <option>Module 1: Safety Orientation &amp; Culture</option>
+        <option>Module 3: Personal Protective Equipment</option>
+        <option>Module 5: Equipment Operation &amp; Maintenance</option>
+        <option>Module 7: Confined Space Entry</option>
+        <option>Module 9: Incident Reporting &amp; Investigation</option>
+      </select>
+      <span style="font-size:12px;color:var(--muted-fg);">Only modules using summaries as end-of-module activity are shown</span>
+    </div>
+
+    <!-- Pass/Fail Pie Chart -->
+    <div class="card">
+      <div class="card-header"><h3>Pass / Fail Distribution</h3><p>Jan 10, 2026 &ndash; Mar 12, 2026 &middot; All summary modules</p></div>
+      <div class="card-body">
+        <div class="pie-container">
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <!-- Background circle -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--muted)" stroke-width="30"/>
+            <!-- Passed arc (~73%) -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--success)" stroke-width="30"
+              stroke-dasharray="367 503" stroke-dashoffset="126" transform="rotate(-90 100 100)"/>
+            <!-- Failed arc (~27%) -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--error)" stroke-width="30"
+              stroke-dasharray="136 503" stroke-dashoffset="-241" transform="rotate(-90 100 100)"/>
+            <!-- Center text -->
+            <text x="100" y="94" text-anchor="middle" font-size="28" font-weight="700" fill="var(--fg)">112</text>
+            <text x="100" y="114" text-anchor="middle" font-size="12" fill="var(--muted-fg)">total</text>
+          </svg>
+          <div class="pie-legend">
+            <div class="pie-legend-item">
+              <div class="pie-legend-dot" style="background:var(--success);"></div>
+              <span>Passed</span>
+              <span class="pie-legend-value" style="color:var(--success);">82</span>
+            </div>
+            <div class="pie-legend-item">
+              <div class="pie-legend-dot" style="background:var(--error);"></div>
+              <span>Failed</span>
+              <span class="pie-legend-value" style="color:var(--error);">30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mean Scores by Rubric Category -->
+    <div class="card">
+      <div class="card-header"><h3>Mean Scores by Rubric Category</h3><p>Breakdown of summary evaluation criteria</p></div>
+      <div class="card-body" style="padding:0;">
+        <table>
+          <thead><tr>
+            <th style="text-align:left;padding-left:20px;">Category</th>
+            <th style="text-align:center;">Mean Score</th>
+            <th style="text-align:left;">Description</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left;padding-left:20px;font-weight:600;">Content</td>
+              <td style="text-align:center;"><span class="score-badge score-good">1.42</span></td>
+              <td style="color:var(--muted-fg);">Coverage of the module's main points and supporting details</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;padding-left:20px;font-weight:600;">Language Borrowing</td>
+              <td style="text-align:center;"><span class="score-badge score-ok">0.95</span></td>
+              <td style="color:var(--muted-fg);">Use of own words vs. language borrowed from the text</td>
+            </tr>
+            <tr>
+              <td style="text-align:left;padding-left:20px;font-weight:600;">Relevance</td>
+              <td style="text-align:center;"><span class="score-badge score-good">1.28</span></td>
+              <td style="color:var(--muted-fg);">Sufficiency of topic relevance to the module content</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Summary Scores by Module -->
+    <div class="card">
+      <div class="card-header"><h3>Average Content Score by Module</h3><p>Only modules with summary as end-of-module activity</p></div>
+      <div class="card-body">
+        <div class="bar-chart" style="height:220px;">
+          <div class="bar-group"><div class="bar-value">1.65</div><div class="bar" style="height:132px;background:var(--chart-1);"></div><div class="bar-label">Mod 1<br>Safety<br>Orient.</div></div>
+          <div class="bar-group"><div class="bar-value">1.38</div><div class="bar" style="height:110px;background:var(--chart-1);"></div><div class="bar-label">Mod 3<br>PPE</div></div>
+          <div class="bar-group"><div class="bar-value">1.22</div><div class="bar" style="height:98px;background:var(--chart-1);"></div><div class="bar-label">Mod 5<br>Equip.<br>Ops</div></div>
+          <div class="bar-group"><div class="bar-value">1.48</div><div class="bar" style="height:118px;background:var(--chart-1);"></div><div class="bar-label">Mod 7<br>Confined<br>Space</div></div>
+          <div class="bar-group"><div class="bar-value">1.55</div><div class="bar" style="height:124px;background:var(--chart-1);"></div><div class="bar-label">Mod 9<br>Incident<br>Rpt.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="../shared-layout.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iTELL Knowledge Base Mockups</title>
+<link rel="stylesheet" href="shared-kb.css">
+<style>
+  body { justify-content: center; align-items: center; flex-direction: column; padding: 48px 24px; }
+  .hub { max-width: 640px; width: 100%; }
+  .hub h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .hub p { color: var(--muted-fg); margin-bottom: 32px; }
+  .version-card {
+    display: block; text-decoration: none; color: var(--fg);
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px 24px; margin-bottom: 16px; box-shadow: var(--shadow);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .version-card:hover { border-color: var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none; }
+  .version-card h2 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .version-card .desc { font-size: 14px; color: var(--muted-fg); }
+  .version-card .pages { font-size: 12px; color: var(--muted-fg); margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="hub">
+  <h1>iTELL Knowledge Base Mockups</h1>
+  <p>Select a version to preview. Each version shares the same base styles but explores a different layout and information architecture for the user-facing help center.</p>
+
+  <a class="version-card" href="v1/index.html">
+    <h2>Version 1 &mdash; Help Center with Sidebar Nav</h2>
+    <div class="desc">Category-based knowledge base with persistent sidebar navigation, hero search, article cards, FAQ accordion, step-by-step guides, callout boxes, and "was this helpful" feedback widgets. Covers all core iTELL features: reading, summaries, questions, cloze, iTELL AI, dashboard, notes, and data privacy.</div>
+    <div class="pages">9 pages: Home &middot; Getting Started &middot; Reading &amp; Progress &middot; Summaries &middot; Questions &amp; Cloze &middot; iTELL AI &middot; Dashboard &middot; Notes &amp; Highlights &middot; FAQ &middot; Data &amp; Privacy</div>
+  </a>
+
+  <a class="version-card" href="v2/index.html">
+    <h2>Version 2 &mdash; Multi-Audience + Textbook-Aware</h2>
+    <div class="desc">Builds on v1 with three key additions: (1) <strong>Volume switcher</strong> in the topbar lets users filter content by textbook (Demo, Chevron, Mars) &mdash; articles and sections that don't apply are hidden. (2) <strong>Audience tabs</strong> in the sidebar switch between Student, Instructor, and Content Author views. (3) <strong>Conditional content blocks</strong> within articles show/hide sections based on textbook selection (e.g., CRI+Cloze for Demo/Chevron, Quizzes for Mars).</div>
+    <div class="pages">12 pages: Home &middot; Summaries &middot; Quizzes (Mars) &middot; Instructor Overview &middot; Class Setup &middot; Student Progress &middot; Instructor FAQ &middot; Authoring Overview &middot; Content Structure &middot; Payload Blocks &middot; Author FAQ</div>
+  </a>
+</div>
+
+</body>
+</html>
